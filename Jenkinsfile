@@ -20,7 +20,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-            sh 'cp /var/lib/jenkins/workspace/terraform-docker/terraform-docker/Dockerfile /var/lib/jenkins/workspace/terraform-docker/terraform-docker/ '
+            sh 'cp /var/lib/jenkins/workspace/terra-job/terraform-docker/Dockerfile /var/lib/jenkins/workspace/terraform-docker/ '
           dockerImage = docker.build registry + ":$BUILD_NUMBER"
         }
       }
