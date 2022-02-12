@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Cloning Git') {
             steps {
-                sh 'https://github.com/sravan-github/terraform-docker.git'
+                sh 'git clone https://github.com/sravan-github/terraform-docker.git'
                 sh 'pwd'
                 sh 'cd terraform-docker'
                 sh 'ls -ltr'
