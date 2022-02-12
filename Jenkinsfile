@@ -9,9 +9,9 @@ pipeline {
     stages {
         stage('Cloning Git') {
             steps {
-                sh 'git clone https://github.com/sravan-github/terraform-docker.git'
+                sh 'git clone https://github.com/sravan-github/toolkit.git'
                 sh 'pwd'
-                sh 'cd terraform-docker'
+                sh 'cd toolkit'
                 sh 'ls -ltr'
             }
         }
@@ -20,7 +20,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-            sh 'cp /var/lib/jenkins/workspace/terra-job/terraform-docker/Dockerfile /var/lib/jenkins/workspace/terraform-docker/ '
+            sh 'cp /var/lib/jenkins/workspace/dockerbulid1/toolkit/Dockerfile /var/lib/jenkins/workspace/dockerbulid/ '
           dockerImage = docker.build registry + ":$BUILD_NUMBER"
         }
       }
