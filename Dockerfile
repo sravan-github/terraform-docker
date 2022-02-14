@@ -20,5 +20,6 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 # Set as default user
 USER ubuntu
+RUN sudo apt-get update
 WORKDIR /home/ubuntu
 CMD ["/bin/bash","-c","tail -f /dev/null"]
