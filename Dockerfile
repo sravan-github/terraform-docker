@@ -9,9 +9,11 @@ RUN apt-get update \
         wget \
         unzip \
         ansible
-RUN wget https://releases.hashicorp.com/terraform/0.12.2/terraform_0.12.2_linux_amd64.zip
-RUN unzip ./terraform_0.12.2_linux_amd64.zip
-RUN cp -r terraform /usr/local/bin/
+RUN wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+RUN echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+RUN sudo apt update && sudo apt install terraform
+#RUN unzip ./terraform_0.12.2_linux_amd64.zip
+#RUN cp -r terraform /usr/local/bin/
 # Create ubuntu user with sudo privileges
 RUN useradd -ms /bin/bash ubuntu && \
     usermod -aG sudo ubuntu
