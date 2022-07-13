@@ -10,7 +10,7 @@ RUN apt-get update \
         unzip \
         ansible
 RUN wget https://releases.hashicorp.com/terraform/1.2.5/terraform_1.2.5_linux_386.zip
-RUN uzip terraform_1.2.5_linux_386.zip
+RUN unzip terraform_1.2.5_linux_386.zip
 RUN mv terraform /usr/local/bin
 USER ubuntu
 WORKDIR /home/ubuntu
